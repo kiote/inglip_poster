@@ -1,6 +1,6 @@
 $KCODE = "U"
 
-require 'robot'
+require "#{File.dirname(__FILE__)}/robot"
 
 client = Robot.new 'http://inglip.ru/api/claim',
   {:consumer_key => 'hKPOMjFpO1s8o1JQjyZw',
