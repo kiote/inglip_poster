@@ -91,7 +91,7 @@ class Robot
 
   # ищем пользователей, которые пишут о
   def search_users_tweets_about word
-    Twitter::Search.new.containing(word).per_page(5).fetch
+    Twitter::Search.new.containing(word).locale("ru").per_page(5).fetch
   end
 
   def get_followers_ids

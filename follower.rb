@@ -9,4 +9,4 @@ client = Robot.new 'http://inglip.ru/api/claim',
   :oauth_token_secret => 'LmzpnfmIrM7feiLYl17xoZBFfTw9RXpCu1XO8BbuE'}
 
 
-client.follow_users_tweets_about 'мем'
+client.follow_users_tweets_about 'luplup'
