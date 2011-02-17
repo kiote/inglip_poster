@@ -23,10 +23,7 @@ ORDER BY RANDOM() #"
   text
 end
 
-client = Robot.new({:consumer_key => yml['serialmaniak']['consumer_key'],
-  :consumer_secret => yml['serialmaniak']['consumer_secret'],
-  :oauth_token => yml['serialmaniak']['oauth_token'],
-  :oauth_token_secret => yml['serialmaniak']['oauth_token_secret']}, &PHRASE_GETTER)
+client = Robot.new yml, 'serialmaniak' , &PHRASE_GETTER
 
 begin
   client.follow_all_back

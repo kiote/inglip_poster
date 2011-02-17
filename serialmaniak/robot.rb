@@ -18,18 +18,18 @@ class Robot
   #    db = SQLite3::Database.new("database.db")
   #    db.get_first_row( "select * from table" )
   #  end
-  def initialize params, &getter
+  def initialize yml, section, &getter
     @getter = getter
     @followers_ids = nil
     @following_ids = nil
 
     @stub = false
-
+    
     Twitter.configure do |config|
-      config.consumer_key = params[:consumer_key]
-      config.consumer_secret = params[:consumer_secret]
-      config.oauth_token = params[:oauth_token]
-      config.oauth_token_secret = params[:oauth_token_secret]
+      config.consumer_key = yml[section]['consumer_key']
+      config.consumer_secret = yml[section]['consumer_secret']
+      config.oauth_token = yml[section]['oauth_token']
+      config.oauth_token_secret = yml[section]['oauth_token_secret']
     end
     @client = Twitter::Client.new
   end
