@@ -22,6 +22,7 @@ client = Robot.new({:consumer_key => 'qhQYAKHy5mVWhdqPD0DX1g',
   :oauth_token_secret => '6bIrZX6burEjHS5BMrYcQDBFKvtK2lsr4E2sOcnOQYg'}, &PHRASE_GETTER)
 
 begin
+  client.follow_all_back
   client.send_message '_msg_'
 rescue => msg
   pp 'error: ' + msg
