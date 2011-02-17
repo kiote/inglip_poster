@@ -6,6 +6,7 @@ require "rubygems"
 require "twitter"
 require "open-uri"
 require 'pp'
+require 'yaml'
 
 class Robot
   attr_accessor :stub
@@ -18,12 +19,14 @@ class Robot
   #    db = SQLite3::Database.new("database.db")
   #    db.get_first_row( "select * from table" )
   #  end
-  def initialize yml, section, &getter
+  def initialize config_path, section, &getter
     @getter = getter
     @followers_ids = nil
     @following_ids = nil
 
     @stub = false
+
+    yml = YAML.load_file config_path
     
     Twitter.configure do |config|
       config.consumer_key = yml[section]['consumer_key']

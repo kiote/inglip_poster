@@ -5,9 +5,6 @@ require 'pp'
 base = File.dirname(__FILE__)
 
 require "#{base}/robot"
-require 'yaml'
-
-yml = YAML.load_file "#{base}/config.yml" 
 
 PHRASE_GETTER = lambda do
   db = SQLite3::Database.new "#{base}/maniak.db"
@@ -23,7 +20,7 @@ ORDER BY RANDOM()"
   text
 end
 
-client = Robot.new yml, 'serialmaniak' , &PHRASE_GETTER
+client = Robot.new "#{base}/config.yml", 'serialmaniak' , &PHRASE_GETTER
 
 begin
   client.follow_all_back
