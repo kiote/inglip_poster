@@ -1,9 +1,12 @@
 $KCODE = "U"
 require 'sqlite3'
-require "#{File.dirname(__FILE__)}/robot"
+
+base = File.dirname(__FILE__)
+
+require "#{base}/robot"
 
 PHRASE_GETTER = lambda do
-  db = SQLite3::Database.new "maniak.db"
+  db = SQLite3::Database.new "#{base}/maniak.db"
   text = nil
   until (!text.nil? and text.length < 121)
     row = db.get_first_row "select * from quotes \
