@@ -16,10 +16,10 @@ ORDER BY RANDOM() "
   text
 end
 
-client = Robot.new({:consumer_key => 'hKPOMjFpO1s8o1JQjyZw',
-  :consumer_secret => 'WawVo9H9BM8KukM233cMDMXm9AhsoIJx9GjOoVqXc',
-  :oauth_token => '248583431-sSXFO1QpjntCNZMZO7ZoykRMTCJKEnUBSxEN30K4',
-  :oauth_token_secret => 'LmzpnfmIrM7feiLYl17xoZBFfTw9RXpCu1XO8BbuE'}, &PHRASE_GETTER)
+client = Robot.new({:consumer_key => 'qhQYAKHy5mVWhdqPD0DX1g',
+  :consumer_secret => 'bFgbeWrr6y10qtFrC089WswSgbhWdmQPYZxbvB30uwk',
+  :oauth_token => '27295510-cZOZYtSnRHYEdnLyIcEbWPFaDQz0Ev7RdZanUbZY',
+  :oauth_token_secret => '6bIrZX6burEjHS5BMrYcQDBFKvtK2lsr4E2sOcnOQYg'}, &PHRASE_GETTER)
 
 begin
   client.send_message '_msg_'
