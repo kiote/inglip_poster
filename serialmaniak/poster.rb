@@ -15,7 +15,7 @@ PHRASE_GETTER = lambda do
   until (!text.nil? and text.length < 121)
     row = db.get_first_row "select * from quotes \
 where id not in (select id from posted)\
-ORDER BY RANDOM() #"
+ORDER BY RANDOM()"
     fail 'no texts found' if row.nil?
     id, text = row[0], row[2]
     db.execute_batch "insert into posted (id) values (#{id})"
