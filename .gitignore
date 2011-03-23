@@ -1,3 +1,5 @@
 nbproject
 sender.rb
 serialmaniak/maniak.db
+.idea
+*.db
