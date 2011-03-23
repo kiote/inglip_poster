@@ -124,7 +124,7 @@ SQL
     end
 
     def retweet_about word
-      search = search_users_tweets_about(word, 1)
+      search = search_users_tweets_about(word, 2)
       init_db
       search.each do |result|
         next if @db.retweeted?(result)
@@ -206,7 +206,11 @@ SQL
     # ретвитим
     # result - hash от поиска
     def retweet(result)
-      @client.retweet(result['id']) unless @stub
+      begin
+        @client.retweet(result['id']) unless @stub
+      rescue
+        puts 'error'
+      end
     end
 
     def rate_limit
