@@ -1,8 +1,11 @@
 $KCODE = "U"
-base = File.dirname(__FILE__)
+require 'rubygems'
+require 'robotwitter'
 
-require './' + base + '/../lib/robot'
+$:.unshift File.dirname(__FILE__)
 
-Robot::Path.set_base(base)
-client = Robot::Robot.new "#{base}/config.yml", 'wanna'
+Robotwitter::Path.set_base File.dirname(__FILE__)
+
+client = Robotwitter::Robot.new "config.yml", 'wanna'
 client.retweet_about 'wannafun'
+client.follow_all_back

@@ -1,13 +1,10 @@
 $KCODE = "U"
-require 'sqlite3'
+require 'rubygems'
+require 'robotwitter'
 require 'pp'
 
-base = File.dirname(__FILE__)
-
-require "#{base}/robot"
-
 PHRASE_GETTER = lambda do
-  db = SQLite3::Database.new "#{base}/maniak.db"
+  db = SQLite3::Database.new "maniak.db"
   text = nil
   until (!text.nil? and text.length < 121)
     row = db.get_first_row "select * from quotes \
@@ -20,7 +17,8 @@ ORDER BY RANDOM()"
   text
 end
 
-client = Robot.new "#{base}/config.yml", 'serialmaniak' , &PHRASE_GETTER
+Robotwitter::Path.set_base File.dirname(__FILE__)
+client = Robotwitter::Robot.new "config.yml", 'serialmaniak' , &PHRASE_GETTER
 
 begin
   client.follow_all_back
