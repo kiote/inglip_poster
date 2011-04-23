@@ -2,8 +2,6 @@ $KCODE = "U"
 require 'rubygems'
 require 'robotwitter'
 
-$:.unshift File.dirname(__FILE__)
-
 Robotwitter::Path.set_base File.dirname(__FILE__)
 
 client = Robotwitter::Robot.new "config.yml", 'wanna'
